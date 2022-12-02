@@ -77,6 +77,15 @@ public class PostController {
         return "redirect:/posts";
     }
 
+    @GetMapping("/{id}/delete")
+    public String showDeletePostForm(@PathVariable long id) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Post post = postsDao.findById(id);
+        if (user.getId() == post.getUser().getId()) {
+            postsDao.delete(post);
+        }
+        return "redirect:/posts";
+    }
 
 
 
