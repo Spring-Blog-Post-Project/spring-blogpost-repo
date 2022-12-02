@@ -25,8 +25,6 @@ public class PostController {
         this.postsDao = postsDao;
         this.usersDao = usersDao;
     }
-//^^
-
 
     @GetMapping
     public String allPosts(Model model){
