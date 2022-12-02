@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"  lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Create a Post</title>
+  <div th:replace="partials :: head-fragment('Create a Post')"></div>
 </head>
 <body>
+<nav th:replace="partials :: navbar"></nav>
 
 <h2>Create a Post</h2>
 
@@ -18,5 +18,7 @@
   <input type="submit" value="Create Post">
 </form>
 
+<footer th:replace="partials :: footer-fragment"></footer>
+<div th:replace="partials :: scripts"></div>
 </body>
 </html>
