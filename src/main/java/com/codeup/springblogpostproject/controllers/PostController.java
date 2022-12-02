@@ -75,6 +75,20 @@ public class PostController {
         return "redirect:/posts";
     }
 
+    @GetMapping("/{id}/delete")
+    public String deletePost(@PathVariable long id) {
+        System.out.println("Inside deletePost");
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.printf("User: %s%n", user.getUsername());
+        Post post = postsDao.findById(id);
+        long UserId = user.getId();
+        long PostUserId = post.getUser().getId();
+        if (UserId == PostUserId) {
+            System.out.println("UserId and PostUserId are equal");
+            postsDao.delete(post);
+        }
+        return "redirect:/posts";
+    }
 
 
 

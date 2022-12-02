@@ -18,10 +18,14 @@
          <p th:if="${post.user.id == #authentication.principal.id}">
             <button th:data-id="${post.id}" class="editButton">Edit</button>
         </p>
+        <p th:if="${post.user.id == #authentication.principal.id}">
+            <button th:data-id="${post.id}" class="deleteButton">Delete</button>
+        </p>
         </span>
   </li>
 </ul>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="/js/edit.js"></script>
+<script th:src="@{/js/delete.js}"></script></scr>
 </body>
 </html>
