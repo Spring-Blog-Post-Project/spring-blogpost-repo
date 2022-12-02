@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Splash Page</title>
+    <div th:replace="partials :: head-fragment('Splash Page')"></div>
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/splash_page.css">
 </head>
 <body>
+<nav th:replace="partials :: navbar"></nav>
+
+<div class="page-wrapper splash-page-wrapper">
+    <img class="image splash-page-logo" src="./images/Rheta-logos.jpeg"/>
+</div>
+
+<footer th:replace="partials :: footer-fragment"></footer>
+<div th:replace="partials :: scripts"></div>
 
 
 

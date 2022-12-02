@@ -1,0 +1,12 @@
+.page-wrapper.splash-page-wrapper{
+	background-color: #E74E35;
+	align-items: center;
+	justify-content: center;
+}
+
+.image.splash-page-logo{
+	width: 100%;
+	max-width: 500px;
+	position: absolute;
+}
+
