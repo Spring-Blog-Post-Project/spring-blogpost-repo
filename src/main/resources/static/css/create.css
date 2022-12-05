@@ -1,14 +1,27 @@
+main {
+	background-color: #F8F9FA;
+	padding-top: 5rem;
+	height: 100vh;
+}
+
+
 .container {
 	width: 500px;
+	background-color: #FFFFFF;
+	padding: 1.5rem;
+	box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+	border-radius: 10px;
 }
 
 .postButton{
 	margin-bottom: 30px;
 }
 
-#title, .title{
-	margin-top: 30px;
+#title, .title, #body{
+	margin-top: 10px;
 }
+
+
 
 
 
