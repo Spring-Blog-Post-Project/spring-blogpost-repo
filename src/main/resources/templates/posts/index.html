@@ -14,7 +14,7 @@
 <!--</form>-->
 
 <div class="container text-center">
-    <h1 class="title">Stranger Danger:</h1>
+    <h1 class="title">All Posts:</h1>
 </div>
 
 <div th:each="post : ${allPosts}" class="posts box-shadow">
@@ -39,8 +39,7 @@
 
       <p>Comments:</p>
       <div th:each="comment : ${post.comments}">
-          <p th:text="${comment.body}"></p>
-          <p th:text="${comment.user.username}"></p>
+          <p> <span class="fw-bold" th:text="${comment.user.username}"></span>: <span th:text="${comment.body}"></span></p>
       </div>
 
   </div>

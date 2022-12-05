@@ -1,5 +1,6 @@
 package com.codeup.springblogpostproject.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
@@ -29,6 +30,12 @@ public class Comment {
 
     public Comment(String body) {
         this.body = body;
+    }
+
+    public Comment(String body, User user, Post post) {
+        this.body = body;
+        this.user = user;
+        this.post = post;
     }
 
 
