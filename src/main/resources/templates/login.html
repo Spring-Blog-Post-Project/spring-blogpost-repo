@@ -6,28 +6,34 @@
 </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>
-<h1 class="text-center mt-4" id="signup-title">Log In</h1>
-
-<div th:if="${param.error}">
-  Invalid Username and Password.
-</div>
-<div th:if="${param.logout}">
-  You have been logged out.
-</div>
-
-<form th:action="@{/login}" th:method="post" class="w-50 mx-auto">
-  <div class="w-100">
-    <label for="username" class="form-label">Username</label>
-    <input id="username" name="username" type="text" class="form-control w-100 shadow-none">
+<main>
+  <h1 class="text-center" id="signup-title">Log In</h1>
+  <div class="form-wrapper">
+    <form th:action="@{/login}" th:method="post" class="w-100 mx-auto">
+      <div class="w-100">
+        <label for="username" class="form-label">Username</label>
+        <input id="username" name="username" type="text" class="form-control w-100 shadow-none">
+      </div>
+      <div th:if="${param.error}" class="username-error">
+        Invalid Username
+      </div>
+      <div class="w-100">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" name="password" type="password" class="form-control w-100 shadow-none">
+      </div>
+      <div th:if="${param.error}" class="password-error">
+        Invalid password
+      </div>
+      <div class="w-100 mt-4">
+        <input type="submit" value="Log In" class="form-control w-100 text-white shadow-none" id="btn">
+      </div>
+      <div th:if="${param.logout}">
+        You have been logged out.
+      </div>
+    </form>
   </div>
-  <div class="w-100">
-    <label for="password" class="form-label">Password</label>
-    <input id="password" name="password" type="password" class="form-control w-100 shadow-none">
-  </div>
-  <div class="w-100 mt-4">
-    <input type="submit" value="Log In" class="form-control w-100 shadow-none" id="btn">
-  </div>
-</form>
+</main>
 <footer th:replace="partials :: footer-fragment"></footer>
+<div th:replace="partials :: scripts"></div>
 </body>
 </html>

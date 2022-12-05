@@ -34,9 +34,6 @@
                 <li sec:authorize="isAuthenticated()" class="nav-item">
                     <a th:href="@{/posts/create}" class="nav-link">Create</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item text-muted">
-                    <a th:href="@{/edit}" class="nav-link">Edit</a>
-                </li>
                 <li sec:authorize="isAnonymous()" class="nav-item">
                     <a class="nav-link" th:href="@{/posts}">All Posts</a>
                 </li>

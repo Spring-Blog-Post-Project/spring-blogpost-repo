@@ -1,5 +1,6 @@
 package com.codeup.springblogpostproject.controllers;
 
+import com.codeup.springblogpostproject.models.Comment;
 import com.codeup.springblogpostproject.models.Post;
 import com.codeup.springblogpostproject.models.User;
 import com.codeup.springblogpostproject.repositories.PostRepository;
@@ -30,6 +31,12 @@ public class PostController {
     public String allPosts(Model model){
         List<Post> allPosts = postsDao.findAll();
         model.addAttribute("allPosts", allPosts);
+        for(Post post : allPosts) {
+            System.out.println(post.getTitle());
+            for(Comment comment : post.getComments()){
+                System.out.println(comment.getBody());
+            }
+        }
         return "/posts/index";
     }
 

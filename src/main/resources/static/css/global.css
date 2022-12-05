@@ -4,6 +4,7 @@ body{
 
 *{
 	box-sizing: border-box;
+	font-family: sans-serif;
 }
 
 .page-wrapper{
@@ -25,4 +26,11 @@ body{
 #main-navbar, #footer {
 	background-color: #E74E35;
 	color: #F8F9FA;
+}
+#footer {
+	padding: 0.8rem;
+}
+div > a {
+	text-decoration: none;
+	color: #FFFFFF;
 }

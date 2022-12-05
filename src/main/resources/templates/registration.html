@@ -6,24 +6,29 @@
 </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>
-<h2 class="text-center mt-5" id="signup-title">Sign Up</h2>
-<form class="w-50 mx-auto" th:action="@{/register}" method="post" th:object="${user}">
-  <div class="mb-3 w-100">
-    <label for="username" class="form-label">Username</label>
-    <input type="text" class="form-control w-100 shadow-none" id="username" th:field="*{username}">
+<main>
+  <h2 class="text-center" id="signup-title">Sign Up</h2>
+  <div class="form-wrapper">
+    <form class="w-100 mx-auto" th:action="@{/register}" method="post" th:object="${user}">
+      <div class="mb-3 w-100">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control w-100 shadow-none" id="username" th:field="*{username}">
+      </div>
+      <div class="mb-3 w-100">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" class="form-control w-100 shadow-none" id="email" th:field="*{email}">
+      </div>
+      <div class="mb-3 w-100">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" class="form-control w-100 shadow-none" id="password" th:field="*{password}">
+      </div>
+      <div class="w-100 mt-4">
+        <input type="submit" value="SignUp" class="form-control w-100 text-white" id="btn">
+      </div>
+    </form>
   </div>
-  <div class="mb-3 w-100">
-    <label for="email" class="form-label">Email</label>
-    <input type="text" class="form-control w-100 shadow-none" id="email" th:field="*{email}">
-  </div>
-  <div class="mb-3 w-100">
-    <label class="form-label" for="password">Password</label>
-    <input type="password" class="form-control w-100 shadow-none" id="password" th:field="*{password}">
-  </div>
-  <div class="w-100 mt-4">
-    <input type="submit" value="SignUp" class="form-control w-100" id="btn">
-  </div>
-  <footer th:replace="partials :: footer-fragment"></footer>
-</form>
+</main>
+<footer th:replace="partials :: footer-fragment"></footer>
+<div th:replace="partials :: scripts"></div>
 </body>
 </html>
