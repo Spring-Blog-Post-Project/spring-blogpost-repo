@@ -1,9 +1,18 @@
 body {
-    background-color: rgb(214, 89, 64);
+    background-color: rgb(248, 249, 250);
+}
+.my-card-container {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    column-gap: 20px;
+    row-gap: 20px;
 }
 
-.title {
-    margin-top: 25rem;
-    margin-left: 30rem;
-    margin-right: 30rem;
+.card.single-post {
+    min-width: calc(33.33% - 20px);
+}
+
+.box-shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

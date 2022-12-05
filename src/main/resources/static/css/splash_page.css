@@ -10,7 +10,7 @@
 	position: absolute;
 }
 
-.nav-link, .navbar-brand {
+.nav-link, .navbar-brand, .about-footer, .contact-footer {
 	color: black;
 }
 
@@ -18,3 +18,5 @@
 	background-color: #F8F9FA;
 	color: black;
 }
+
+
