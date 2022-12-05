@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Register for the Spring Blog</title>
+  <div th:replace="partials :: head-fragment('Signup')"></div>
 </head>
 <body>
+<nav th:replace="partials :: navbar"></nav>
+<h2 class="text-center mt-5">Sign Up</h2>
+<form class="w-50 mx-auto" th:action="@{/register}" method="post" th:object="${user}">
+  <div class="mb-3 w-100">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control w-100" id="username" th:field="*{username}">
+  </div>
+  <div class="mb-3 w-100">
+    <label for="email" class="form-label">Email</label>
+    <input type="text" class="form-control w-100" id="email" th:field="*{email}">
+  </div>
+  <div class="mb-3 w-100">
+    <label class="form-label" for="password">Password</label>
+    <input type="password" class="form-control w-100" id="password" th:field="*{password}">
+  </div>
+  <button type="submit" class="btn btn-primary w-100">SignUp</button>
 
-<h1>Create an account</h1>
-
-<form th:action="@{/register}" method="post" th:object="${user}">
-  <label for="username">Username</label>
-  <input id="username" th:field="*{username}">
-  <br><br>
-  <label for="email">Email</label>
-  <input id="email" th:field="*{email}">
-  <br><br>
-  <label for="password">Password</label>
-  <input id="password" type="password" th:field="*{password}">
-  <br><br>
-  <input type="submit" value="Sign me up!">
+  <footer th:replace="partials :: footer-fragment"></footer>
 </form>
-
-
 </body>
 </html>
