@@ -18,7 +18,7 @@
 </div>
 
 <div th:each="post : ${allPosts}" class="posts box-shadow">
-  < class="container text-center card style=width: 18rem;">
+  <div class="container text-center card style=width: 18rem;">
     <h2 th:text="${post.title}"></h2>
     <p>User: <span th:text="${post.user.username}"></span></p>
     <p th:text="${post.body}"></p>
