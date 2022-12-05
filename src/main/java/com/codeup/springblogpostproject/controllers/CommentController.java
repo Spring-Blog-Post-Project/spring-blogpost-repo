@@ -42,10 +42,9 @@ public class CommentController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         long UserId = user.getId();
         user = usersDao.findById(UserId);
-        comment.setUser(user);
         Post post = postsDao.findById(id);
-        comment.setPost(post);
-        commentsDao.save(comment);
+        Comment newComment = new Comment(comment.getBody(), user, post);
+        commentsDao.save(newComment);
         return "redirect:/posts";
     }
 
