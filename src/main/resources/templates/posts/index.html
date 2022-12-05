@@ -35,11 +35,13 @@
                 <button th:data-id="${post.id}" class="commentsButton btn btn-danger">Comments</button>
             </p>
             </div>
-            <p>Comments:</p>
-            <div th:each="comment : ${post.comments}">
-                <p th:field="${comment.body}"></p>
-            </div>
         </span>
+
+      <p>Comments:</p>
+      <div th:each="comment : ${post.comments}">
+          <p th:text="${comment.body}"></p>
+          <p th:text="${comment.user.username}"></p>
+      </div>
 
   </div>
 </div>
