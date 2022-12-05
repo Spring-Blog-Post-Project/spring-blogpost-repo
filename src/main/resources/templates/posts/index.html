@@ -31,8 +31,12 @@
             <p th:if="${post.user.id == #authentication.principal.id}">
                 <button th:data-id="${post.id}" class="deleteButton btn btn-danger">Delete</button>
             </p>
+            <p>
+                <button th:data-id="${post.id}" class="commentsButton btn btn-danger">Comments</button>
+            </p>
             </div>
         </span>
+
   </div>
 </div>
 
@@ -50,5 +54,6 @@
 <div th:replace="partials::scripts"></div>
 <script th:src="@{/js/edit.js}"></script>
 <script th:src="@{/js/delete.js}"></script>
+<script th:src="@{/js/comments.js}"></script>
 </body>
 </html>
