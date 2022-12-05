@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>All Posts</title>
+    <div th:replace="partials::head-fragment('All Posts')"></div>
+    <link rel="stylesheet" href="/css/posts.css">
 </head>
 <body>
 <form th:action="@{/logout}" th:method="post">
-  <button>Logout</button>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="button" class="btn btn-danger btn-lg">Logout</button>
+    </div>
 </form>
-<h1>Your feed:</h1>
-<ul th:each="post : ${allPosts}">
-  <li>
+
+<div class="container text-center">
+    <h1 class="title">Your feed:</h1>
+</div>
+
+<div th:each="post : ${allPosts}">
+  <div class="container text-center card style=width: 18rem posts;">
     <h2 th:text="${post.title}"></h2>
     <p>User: <span th:text="${post.user.username}"></span></p>
     <p th:text="${post.body}"></p>
-    <span sec:authorize = "isAuthenticated()">
-        <p th:if="${post.user.id == #authentication.principal.id}">
-            <button th:data-id="${post.id}" class="editButton">Edit</button>
-        </p>
-        <p th:if="${post.user.id == #authentication.principal.id}">
-            <button th:data-id="${post.id}" class="deleteButton">Delete</button>
-        </p>
-    </span>
-  </li>
-</ul>
+
+        <span sec:authorize = "isAuthenticated()">
+            <div class="d-flex justify-content-center">
+            <p th:if="${post.user.id == #authentication.principal.id}">
+                <button th:data-id="${post.id}" class="editButton btn btn-danger">Edit</button>
+            </p>
+            <p th:if="${post.user.id == #authentication.principal.id}">
+                <button th:data-id="${post.id}" class="deleteButton btn btn-danger">Delete</button>
+            </p>
+            </div>
+        </span>
+  </div>
+</div>
+
+<!--    <span sec:authorize = "isAuthenticated()">-->
+<!--        <p th:if="${post.user.id == #authentication.principal.id}">-->
+<!--            <button th:data-id="${post.id}" class="editButton">Edit</button>-->
+<!--        </p>-->
+<!--        <p th:if="${post.user.id == #authentication.principal.id}">-->
+<!--            <button th:data-id="${post.id}" class="deleteButton">Delete</button>-->
+<!--        </p>-->
+<!--    </span>-->
+<!--  </li>-->
+<!--</ul>-->
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="/js/edit.js"></script>
 <script th:src="@{/js/delete.js}"></script>
