@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(214, 89, 64);
+}
+
+.title {
+    margin-top: 25rem;
+    margin-left: 30rem;
+    margin-right: 30rem;
+}
