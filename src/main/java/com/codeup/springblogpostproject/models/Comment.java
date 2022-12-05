@@ -3,22 +3,15 @@ package com.codeup.springblogpostproject.models;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
-import java.util.List;
-
 
 @Entity
-@Table(name = "posts")
-public class Post {
+@Table(name = "comments")
+public class Comment {
 
     @javax.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-
-    @Column(nullable = false, length = 100)
-    private String title;
-
 
     @Column(nullable = false, length = 500)
     private String body;
@@ -27,38 +20,17 @@ public class Post {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
-    private List<Comment> comments;
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private Post post;
 
-
-    public Post() {
+    public Comment() {
     }
 
-
-    public Post(String title, String body) {
-        this.title = title;
+    public Comment(String body) {
         this.body = body;
     }
 
-    public Post(long id, String title, String body) {
-        this.id = id;
-        this.title = title;
-        this.body = body;
-    }
-
-    public Post(String title, String body, User user) {
-        this.title = title;
-        this.body = body;
-        this.user = user;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getBody() {
         return body;
@@ -88,7 +60,12 @@ public class Post {
         this.user = user;
     }
 
+    public Post getPost() {
+        return post;
+    }
 
+    public void setPost(Post post) {
+        this.post = post;
+    }
 
 }
-
