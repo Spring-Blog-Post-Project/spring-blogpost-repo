@@ -13,6 +13,9 @@ public class HomeController {
         return "splash_page";
     }
 
-
+    @GetMapping("/about")
+    public String aboutUs(){
+        return "about";
+    }
 
 }
