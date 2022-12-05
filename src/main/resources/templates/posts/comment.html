@@ -10,7 +10,7 @@
 <body>
 <nav th:replace="partials :: navbar"></nav>
 
-<form th:action="@{|/comments/${id}/create|}" method="post" th:object="${comment}">
+<form th:action="@{|/comments/${post.id}/create|}" method="post" th:object="${comment}">
     <label for="comment">Comment:</label>
     <input type="text" th:field="*{body}" id="comment">
     <br><br>

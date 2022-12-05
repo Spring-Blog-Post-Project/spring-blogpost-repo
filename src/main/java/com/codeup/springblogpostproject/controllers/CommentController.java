@@ -38,11 +38,13 @@ public class CommentController {
     }
 
     @PostMapping("/{id}/create")
-    public String addComment(@ModelAttribute Comment comment) {
+    public String addComment(@ModelAttribute Comment comment, @PathVariable long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         long UserId = user.getId();
         user = usersDao.findById(UserId);
         comment.setUser(user);
+        Post post = postsDao.findById(id);
+        comment.setPost(post);
         commentsDao.save(comment);
         return "redirect:/posts";
     }
