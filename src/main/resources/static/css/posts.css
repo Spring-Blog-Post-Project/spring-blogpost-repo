@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(214, 89, 64);
+}
+
+.title {
+    margin-bottom: 4rem;
+}
+
+.posts {
+    margin-bottom: 2rem;
+    margin-left: 30rem;
+    margin-right: 30rem;
+}
+
+.box-shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.editButton {
+    margin-right: 0.5rem;
+}
+
+.deleteButton {
+    margin-left: 0.5rem;
+}
