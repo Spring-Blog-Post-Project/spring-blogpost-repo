@@ -41,8 +41,6 @@ public class CommentController {
         return "redirect:/posts";
     }
 
-
-
-
+    
 
 }
