@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Log In</title>
+  <div th:replace="partials :: head-fragment('login')"></div>
+  <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-
-<h1>Log In</h1>
+<nav th:replace="partials :: navbar"></nav>
+<h1 class="text-center mt-4" id="signup-title">Log In</h1>
 
 <div th:if="${param.error}">
   Invalid Username and Password.
@@ -15,12 +15,19 @@
   You have been logged out.
 </div>
 
-<form th:action="@{/login}" method="post">
-  <label for="username">Username</label>
-  <input id="username" name="username" type="text">
-  <label for="password">Password</label>
-  <input id="password" name="password" type="password">
-  <input type="submit" value="Log In">
+<form th:action="@{/login}" th:method="post" class="w-50 mx-auto">
+  <div class="w-100">
+    <label for="username" class="form-label">Username</label>
+    <input id="username" name="username" type="text" class="form-control w-100 shadow-none">
+  </div>
+  <div class="w-100">
+    <label for="password" class="form-label">Password</label>
+    <input id="password" name="password" type="password" class="form-control w-100 shadow-none">
+  </div>
+  <div class="w-100 mt-4">
+    <input type="submit" value="Log In" class="form-control w-100 shadow-none" id="btn">
+  </div>
 </form>
+<footer th:replace="partials :: footer-fragment"></footer>
 </body>
 </html>

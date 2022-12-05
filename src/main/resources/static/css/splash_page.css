@@ -10,3 +10,11 @@
 	position: absolute;
 }
 
+.nav-link, .navbar-brand {
+	color: black;
+}
+
+#main-navbar, #footer {
+	background-color: #F8F9FA;
+	color: black;
+}

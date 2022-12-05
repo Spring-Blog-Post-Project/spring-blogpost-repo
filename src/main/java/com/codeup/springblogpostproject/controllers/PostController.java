@@ -25,8 +25,6 @@ public class PostController {
         this.postsDao = postsDao;
         this.usersDao = usersDao;
     }
-//^^
-
 
     @GetMapping
     public String allPosts(Model model){
@@ -59,7 +57,6 @@ public class PostController {
         return "redirect:/posts";
     }
 
-//    Refactor your PostController and create form to implement form model binding.
 
     @GetMapping("/{id}/edit")
     public String showEditPostForm(@PathVariable long id, Model model) {
@@ -91,7 +88,5 @@ public class PostController {
         }
         return "redirect:/posts";
     }
-
-
 
 }

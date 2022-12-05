@@ -2,9 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
   <meta charset="UTF-8">
+  <div th:replace="partials :: head-fragment('Splash Page')"></div>
   <title>Edit a Post</title>
+  <link rel="stylesheet" href="/css/global.css">
 </head>
 <body>
+<nav th:replace="partials :: navbar"></nav>
 <div sec:authorize="isAuthenticated()">
   This content is only shown to authenticated users.
 
@@ -22,5 +25,8 @@
   <br><br>
   <input type="submit" value="Submit">
 </form>
+
+<footer th:replace="partials :: footer-fragment"></footer>
+<div th:replace="partials :: scripts"></div>
 </body>
 </html>

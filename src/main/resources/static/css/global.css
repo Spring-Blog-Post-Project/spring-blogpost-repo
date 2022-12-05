@@ -17,3 +17,12 @@ body{
 .image{
 	max-width: 100%;
 }
+
+.nav-link, .navbar-brand {
+	color: #F8F9FA;
+}
+
+#main-navbar, #footer {
+	background-color: #E74E35;
+	color: #F8F9FA;
+}
