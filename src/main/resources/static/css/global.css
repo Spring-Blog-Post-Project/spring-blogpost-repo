@@ -30,6 +30,9 @@ body{
 #footer {
 	padding: 0.8rem;
 }
+#footer>div {
+	flex: 1;
+}
 div > a {
 	text-decoration: none;
 	color: #FFFFFF;
