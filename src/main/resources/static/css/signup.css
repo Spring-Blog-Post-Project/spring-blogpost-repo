@@ -4,3 +4,7 @@
 #signup-title {
     color: rgb(215, 89, 64);
 }
+.form-wrapper {
+    width: 70%;
+    padding: 2rem;
+}

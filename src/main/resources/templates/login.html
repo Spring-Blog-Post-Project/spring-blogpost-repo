@@ -14,20 +14,21 @@
 <div th:if="${param.logout}">
   You have been logged out.
 </div>
-
-<form th:action="@{/login}" th:method="post" class="w-50 mx-auto">
-  <div class="w-100">
-    <label for="username" class="form-label">Username</label>
-    <input id="username" name="username" type="text" class="form-control w-100 shadow-none">
-  </div>
-  <div class="w-100">
-    <label for="password" class="form-label">Password</label>
-    <input id="password" name="password" type="password" class="form-control w-100 shadow-none">
-  </div>
-  <div class="w-100 mt-4">
-    <input type="submit" value="Log In" class="form-control w-100 shadow-none" id="btn">
-  </div>
-</form>
+<div class="form-wrapper">
+  <form th:action="@{/login}" th:method="post" class="w-50 mx-auto border">
+    <div class="w-100">
+      <label for="username" class="form-label">Username</label>
+      <input id="username" name="username" type="text" class="form-control w-100 shadow-none">
+    </div>
+    <div class="w-100">
+      <label for="password" class="form-label">Password</label>
+      <input id="password" name="password" type="password" class="form-control w-100 shadow-none">
+    </div>
+    <div class="w-100 mt-4">
+      <input type="submit" value="Log In" class="form-control w-100 shadow-none" id="btn">
+    </div>
+  </form>
+</div>
 <footer th:replace="partials :: footer-fragment"></footer>
 </body>
 </html>
