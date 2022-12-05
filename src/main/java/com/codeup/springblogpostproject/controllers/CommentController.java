@@ -9,9 +9,7 @@ import com.codeup.springblogpostproject.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/comments")
@@ -30,6 +28,14 @@ public class CommentController {
         this.postsDao = postsDao;
     }
 
+
+    @GetMapping("/{id}/create")
+    public String showCommentForm(@PathVariable long id, Model model) {
+        Post post = postsDao.findById(id);
+        model.addAttribute("post", post);
+        model.addAttribute("comment", new Comment());
+        return "posts/comment";
+    }
 
     @PostMapping("/{id}/create")
     public String addComment(@ModelAttribute Comment comment) {

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <div th:replace="partials :: head-fragment('Edit Page')"></div>
+    <title>Add Comment</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/edit.css">
+</head>
+<body>
+<nav th:replace="partials :: navbar"></nav>
+
+<form th:action="@{|/comments/${id}/create|}" method="post" th:object="${comment}">
+    <label for="comment">Comment:</label>
+    <input type="text" th:field="*{body}" id="comment">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+
+<footer th:replace="partials :: footer-fragment"></footer>
+<div th:replace="partials :: scripts"></div>
+</body>
+</html>
