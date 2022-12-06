@@ -18,4 +18,10 @@ public class HomeController {
         return "about";
     }
 
+    // Shows contact.html template
+    @GetMapping("/contact")
+    public String contactUs() {
+        return "contact";
+    }
+
 }

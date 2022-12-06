@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+<head>
+    <div th:replace="partials :: head-fragment('Contact Us')"></div>
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+<nav th:replace="partials :: navbar"></nav>
+<main>
+    <h1 class="text-center" id="form-title">Send us a Message</h1>
+    <div class="form-wrapper">
+        <form th:action="@{/}" th:method="get" class="w-100 mx-auto">
+            <div class="w-100">
+                <label for="name" class="form-label">Name</label>
+                <input id="name" name="name" type="text" class="form-control w-100 shadow-none">
+            </div>
+            <div class="w-100">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" rows="10" class="form-control w-100 shadow-none"></textarea>
+            </div>
+            <div class="w-100 mt-4">
+                <input type="submit" value="Send" class="form-control w-100 text-white shadow-none" id="btn">
+            </div>
+        </form>
+    </div>
+</main>
+<footer th:replace="partials :: footer-fragment"></footer>
+<div th:replace="partials :: scripts"></div>
+</body>
+</html>

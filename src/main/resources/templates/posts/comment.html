@@ -15,7 +15,7 @@
         <form th:action="@{|/comments/${post.id}/create|}" th:method="post" class="w-100 mx-auto" th:object="${comment}">
             <div class="w-100">
                 <label for="comment" class="form-label">Comment</label>
-                <input th:field="*{body}" id="comment" name="comment" type="text" class="form-control w-100 shadow-none">
+                <textarea th:field="*{body}" id="comment" name="comment" rows="6" class="form-control w-100 shadow-none"></textarea>
             </div>
             <div class="w-100 mt-4">
                 <input type="submit" value="Submit" class="form-control w-100 text-white shadow-none" id="btn">
