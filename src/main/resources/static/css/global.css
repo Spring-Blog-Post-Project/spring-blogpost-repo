@@ -30,10 +30,14 @@ body{
 #footer {
 	padding: 0.8rem;
 }
-#footer>div {
+#footer > div {
 	flex: 1;
 }
-div > a {
+#footer > div > a {
 	text-decoration: none;
 	color: #FFFFFF;
+}
+
+#footer > div > a:hover {
+	color: rgba(0, 0, 0, 0.7);
 }

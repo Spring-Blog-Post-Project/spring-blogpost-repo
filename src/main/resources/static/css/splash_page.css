@@ -16,7 +16,10 @@
 
 #main-navbar, #footer {
 	background-color: #F8F9FA;
-	color: black;
+}
+#footer > div > a {
+	text-decoration: none;
+	color: #000;
 }
 
 
