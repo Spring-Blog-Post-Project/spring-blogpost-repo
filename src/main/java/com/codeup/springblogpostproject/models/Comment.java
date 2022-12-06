@@ -1,6 +1,5 @@
 package com.codeup.springblogpostproject.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
@@ -9,44 +8,33 @@ import javax.persistence.*;
 @Table(name = "comments")
 public class Comment {
 
+    // Properties
     @javax.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     @Column(nullable = false, length = 500)
     private String body;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-
     @ManyToOne
     @JoinColumn(name = "post_id")
     private Post post;
 
+    // Constructors
     public Comment() {
     }
-
     public Comment(String body) {
         this.body = body;
     }
-
     public Comment(String body, User user, Post post) {
         this.body = body;
         this.user = user;
         this.post = post;
     }
 
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
-    }
-
+    // Getters and Setters
     public long getId() {
         return id;
     }
@@ -55,8 +43,12 @@ public class Comment {
         this.id = id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public User getUser() {
@@ -74,5 +66,4 @@ public class Comment {
     public void setPost(Post post) {
         this.post = post;
     }
-
 }
