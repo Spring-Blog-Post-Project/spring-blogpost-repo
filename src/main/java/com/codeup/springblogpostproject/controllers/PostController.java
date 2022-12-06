@@ -22,24 +22,21 @@ public class PostController {
     private final PostRepository postsDao;
     private final UserRepository usersDao;
 
+    // Constructor
     public PostController(PostRepository postsDao, UserRepository usersDao) {
         this.postsDao = postsDao;
         this.usersDao = usersDao;
     }
 
+    // Get method to show index.html view with all posts added to model
     @GetMapping
     public String allPosts(Model model){
         List<Post> allPosts = postsDao.findAll();
         model.addAttribute("allPosts", allPosts);
-        for(Post post : allPosts) {
-            System.out.println(post.getTitle());
-            for(Comment comment : post.getComments()){
-                System.out.println(comment.getBody());
-            }
-        }
         return "/posts/index";
     }
 
+    // Get method to show show.html view with post added to model
     @GetMapping("/{id}")
     public String onePost(@PathVariable long id, Model model){
         Post post = postsDao.findById(id);
@@ -47,13 +44,14 @@ public class PostController {
         return "/posts/show";
     }
 
-
+    // Get method to show create.html view with empty post object added to model
     @GetMapping("/create")
     public String createPost(Model model) {
         model.addAttribute("post", new Post());
         return "/posts/create";
     }
 
+    // Post method to receive post object and save to database
     @PostMapping("/create")
     public String submitPost(@ModelAttribute Post post) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -64,7 +62,7 @@ public class PostController {
         return "redirect:/posts";
     }
 
-
+    // Get method to show edit.html view with post object added to model
     @GetMapping("/{id}/edit")
     public String showEditPostForm(@PathVariable long id, Model model) {
         Post post = postsDao.findById(id);
@@ -72,20 +70,19 @@ public class PostController {
         return "/posts/edit";
     }
 
+    // Post method to receive post object and save to database
     @PostMapping("/{id}/edit")
     public String editPost(@ModelAttribute Post post) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        long UserId = user.getId();
         post.setUser(user);
         postsDao.save(post);
         return "redirect:/posts";
     }
 
+    // Get method to delete post from database
     @GetMapping("/{id}/delete")
     public String deletePost(@PathVariable long id) {
-        System.out.println("Inside deletePost");
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.printf("User: %s%n", user.getUsername());
         Post post = postsDao.findById(id);
         long UserId = user.getId();
         long PostUserId = post.getUser().getId();

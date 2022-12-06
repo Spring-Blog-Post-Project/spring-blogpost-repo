@@ -7,24 +7,45 @@ import java.util.List;
 @Table(name = "users")
 public class User {
 
+    // Properties
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     @Column(nullable = false, length = 50, unique = true)
     private String username;
-
     @Column(nullable = false, length = 60)
     private String email;
-
     @Column(nullable = false)
     private String password;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Post> posts;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Comment> comments;
+
+    //  Constructors
+    public User(){
+    }
+
+    public User(String username, String email, String password){
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(long id, String username, String email, String password){
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(long id, String username, String email, String password, List<Post> userPosts){
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.posts = userPosts;
+    }
 
     //  Getters and Setters
     public long getId() {
@@ -82,34 +103,5 @@ public class User {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
-
-    //  Constructors
-    public User(){
-    }
-
-    public User(String username, String email, String password){
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
-
-    public User(long id, String username, String email, String password){
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
-
-    public User(long id, String username, String email, String password, List<Post> userPosts){
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.posts = userPosts;
-    }
-
-
-
-
 }
 

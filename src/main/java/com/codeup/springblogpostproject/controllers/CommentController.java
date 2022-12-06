@@ -18,24 +18,18 @@ import org.springframework.web.bind.annotation.*;
 public class CommentController {
 
     // Dependency Injection
-
     private final PostRepository postsDao;
-
     private final CommentRepository commentsDao;
     private final UserRepository usersDao;
 
+    // Constructor
     public CommentController(CommentRepository commentsDao, UserRepository usersDao, PostRepository postsDao) {
         this.commentsDao = commentsDao;
         this.usersDao = usersDao;
         this.postsDao = postsDao;
     }
 
-    @GetMapping("/create")
-    public String createComment(Model model) {
-        model.addAttribute("comment", new Comment());
-        return "/comments/create";
-    }
-
+    // Get method to send user to comment.html view with Comment and Post objects as attributes on model
     @GetMapping("/{id}/create")
     public String showCommentForm(@PathVariable long id, Model model) {
         Post post = postsDao.findById(id);
@@ -44,6 +38,7 @@ public class CommentController {
         return "posts/comment";
     }
 
+    // Post method to save comment to database
     @PostMapping("/{id}/create")
     public String addComment(@ModelAttribute Comment comment, @PathVariable long id) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -54,7 +49,5 @@ public class CommentController {
         commentsDao.save(newComment);
         return "redirect:/posts";
     }
-
-    
 
 }

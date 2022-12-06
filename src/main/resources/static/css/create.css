@@ -1,9 +1,12 @@
 main {
 	background-color: #F8F9FA;
-	padding-top: 5rem;
+	padding-top: 1rem;
 	height: 100vh;
 }
 
+#create-header {
+	color: rgb(215, 89, 64);
+}
 
 .container {
 	width: 500px;
@@ -15,13 +18,10 @@ main {
 
 .postButton{
 	margin-bottom: 30px;
+	background-color: rgb(215, 89, 64);
+	color: white;
 }
 
 #title, .title, #body{
 	margin-top: 10px;
 }
-
-
-
-
-

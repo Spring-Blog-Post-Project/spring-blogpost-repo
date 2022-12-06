@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  lang="en">
+<head>
+    <div th:replace="partials :: head-fragment('login')"></div>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+</head>
+<body>
+<!--Navbar-->
+<nav th:replace="partials :: navbar"></nav>
+
+<main>
+    <h1 class="title text-center pt-5">About Rheta</h1>
+    <div class="w-50 text-center mx-auto">
+        <p>
+            This blog was started to raise awareness about ponzi schemes our users have encountered. It is a free online platform where one can sign up and share with fellow users to create a community aimed to help those that have fallen victims to these scams.
+        </p>
+    </div>
+</main>
+
+<!--Footer-->
+<footer th:replace="partials :: footer-fragment"></footer>
+<!--Scripts-->
+<div th:replace="partials :: scripts"></div>
+</body>
+</html>
