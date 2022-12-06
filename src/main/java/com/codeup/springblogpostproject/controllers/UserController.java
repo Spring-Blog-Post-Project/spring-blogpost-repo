@@ -26,7 +26,7 @@ public class UserController {
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
         model.addAttribute("user", new User());
-        return "/registration";
+        return "user/registration";
     }
 
     // Post method to save new user to database after hashing password

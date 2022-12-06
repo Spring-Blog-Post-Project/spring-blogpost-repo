@@ -9,7 +9,7 @@ public class AuthenticationController {
     // Shows login.html template
     @GetMapping("/login")
     public String showLoginForm() {
-        return "/login";
+        return "user/login";
     }
 
 }

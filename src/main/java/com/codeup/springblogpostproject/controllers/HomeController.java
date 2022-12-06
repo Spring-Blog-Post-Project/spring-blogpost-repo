@@ -9,19 +9,7 @@ public class HomeController {
     // Shows splash_page.html template
     @GetMapping("/")
     public String helloWorld() {
-        return "splash_page";
-    }
-
-    // Shows about.html template
-    @GetMapping("/about")
-    public String aboutUs(){
-        return "about";
-    }
-
-    // Shows contact.html template
-    @GetMapping("/contact")
-    public String contactUs() {
-        return "contact";
+        return "site/splash_page";
     }
 
 }
