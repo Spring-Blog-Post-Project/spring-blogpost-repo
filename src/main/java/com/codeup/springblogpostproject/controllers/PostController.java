@@ -5,6 +5,7 @@ import com.codeup.springblogpostproject.models.Post;
 import com.codeup.springblogpostproject.models.User;
 import com.codeup.springblogpostproject.repositories.PostRepository;
 import com.codeup.springblogpostproject.repositories.UserRepository;
+import com.codeup.springblogpostproject.utils.Utils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,9 +55,7 @@ public class PostController {
     // Post method to receive post object and save to database
     @PostMapping("/create")
     public String submitPost(@ModelAttribute Post post) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        long UserId = user.getId();
-        user = usersDao.findById(UserId);
+        User user = usersDao.findById(Utils.currentUserId());
         post.setUser(user);
         postsDao.save(post);
         return "redirect:/posts";
@@ -65,7 +64,11 @@ public class PostController {
     // Get method to show edit.html view with post object added to model
     @GetMapping("/{id}/edit")
     public String showEditPostForm(@PathVariable long id, Model model) {
+        User user = usersDao.findById(Utils.currentUserId());
         Post post = postsDao.findById(id);
+        if(!user.equals(post.getUser())) {
+            return "redirect:/posts";
+        }
         model.addAttribute("post", post);
         return "/posts/edit";
     }
@@ -73,7 +76,7 @@ public class PostController {
     // Post method to receive post object and save to database
     @PostMapping("/{id}/edit")
     public String editPost(@ModelAttribute Post post) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = usersDao.findById(Utils.currentUserId());
         post.setUser(user);
         postsDao.save(post);
         return "redirect:/posts";
@@ -82,7 +85,7 @@ public class PostController {
     // Get method to delete post from database
     @GetMapping("/{id}/delete")
     public String deletePost(@PathVariable long id) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = usersDao.findById(Utils.currentUserId());
         Post post = postsDao.findById(id);
         long UserId = user.getId();
         long PostUserId = post.getUser().getId();
