@@ -13,7 +13,8 @@ body {
     margin-right: 30rem;
 }
 
-.posts h2{
+.post-title-link {
+    text-decoration: none;
     color: rgb(215, 89, 64);
 }
 
