@@ -4,28 +4,13 @@
       lang="en">
 <head>
   <div th:replace="partials :: head-fragment('Create a Post')"></div>
-  <link rel="stylesheet" th:href="@{/css/create.css}">
+  <link rel="stylesheet" th:href="@{/css/form.css}">
 </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>
-<!--<main>-->
-<!--<h1 id="create-header" class="text-center mt-4">Create a Post</h1>-->
-
-<!--&lt;!&ndash;This HTML page should contain a form for creating a new post.&ndash;&gt;-->
-<!--<form th:action="@{/posts/create}" method="post" th:object="${post}">-->
-<!--  <div class="container text-center card style=width: 18rem;">-->
-<!--    <label class="title form-label" for="title">Title</label>-->
-<!--      <input class="form-control" type="text" th:field="*{title}" id="title"><br><br>-->
-<!--    <label class="form-label" for="body">Body</label>-->
-<!--  <textarea class="form-control" th:field="*{body}" id="body" rows="10" cols="32"></textarea>-->
-<!--  <br><br>-->
-<!--    <input class="postButton form-control" type="submit" value="Create Post">-->
-<!--  </div>-->
-<!--</form>-->
-<!--</main>-->
 
 <main>
-  <h1 class="text-center" id="signup-title">Create Post</h1>
+  <h1 class="text-center" id="form-title">Create Post</h1>
   <div class="form-wrapper">
     <form th:action="@{/posts/create}" th:method="post" class="w-100 mx-auto" th:object="${post}">
       <div class="w-100">
@@ -42,6 +27,7 @@
     </form>
   </div>
 </main>
+
 <footer th:replace="partials :: footer-fragment"></footer>
 <div th:replace="partials :: scripts"></div>
 </body>

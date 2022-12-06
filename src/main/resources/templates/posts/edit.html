@@ -4,13 +4,13 @@
       lang="en">
 <head>
   <div th:replace="partials :: head-fragment('Edit Post')"></div>
-  <link rel="stylesheet" th:href="@{/css/edit.css}">
+  <link rel="stylesheet" th:href="@{/css/form.css}">
 </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>
 
 <main>
-  <h1 class="text-center" id="signup-title">Edit Post</h1>
+  <h1 class="text-center" id="form-title">Edit Post</h1>
   <div class="form-wrapper">
     <form th:action="@{|/posts/${id}/edit|}" th:method="post" class="w-100 mx-auto" th:object="${post}">
       <div class="w-100">

@@ -4,12 +4,12 @@
       lang="en">
 <head>
   <div th:replace="partials :: head-fragment('Signup')"></div>
-  <link rel="stylesheet" th:href="@{/css/signup.css}">
+  <link rel="stylesheet" th:href="@{/css/form.css}">
 </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>
 <main>
-  <h2 class="text-center" id="signup-title">Sign Up</h2>
+  <h2 class="text-center" id="form-title">Sign Up</h2>
   <div class="form-wrapper">
     <form class="w-100 mx-auto" th:action="@{/register}" method="post" th:object="${user}">
       <div class="mb-3 w-100">

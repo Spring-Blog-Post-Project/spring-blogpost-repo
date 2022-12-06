@@ -4,13 +4,13 @@
       lang="en">
 <head>
     <div th:replace="partials :: head-fragment('Add Comment')"></div>
-    <link rel="stylesheet" th:href="@{/css/comment.css}">
+    <link rel="stylesheet" th:href="@{/css/form.css}">
 </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>
 
 <main>
-    <h1 class="text-center" id="signup-title">Add Comment</h1>
+    <h1 class="text-center" id="form-title">Add Comment</h1>
     <div class="form-wrapper">
         <form th:action="@{|/comments/${post.id}/create|}" th:method="post" class="w-100 mx-auto" th:object="${comment}">
             <div class="w-100">
