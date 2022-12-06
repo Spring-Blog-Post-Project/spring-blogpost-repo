@@ -4,7 +4,7 @@
       lang="en">
 <head>
   <div th:replace="partials :: head-fragment('Create a Post')"></div>
-  <link rel="stylesheet" href="/css/create.css">
+  <link rel="stylesheet" th:href="@{/css/create.css}">
 </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>

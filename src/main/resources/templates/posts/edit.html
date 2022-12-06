@@ -3,21 +3,11 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       lang="en">
 <head>
-  <meta charset="UTF-8">
-  <div th:replace="partials :: head-fragment('Edit Page')"></div>
-  <title>Edit a Post</title>
-  <link rel="stylesheet" href="/css/global.css">
-  <link rel="stylesheet" href="/css/edit.css">
+  <div th:replace="partials :: head-fragment('Edit Post')"></div>
+  <link rel="stylesheet" th:href="@{/css/edit.css}">
 </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>
-<div class="authorize" sec:authorize="isAuthenticated()">
-  This content is only shown to authenticated users.
-
-  User ID: <span th:text="${#authentication.principal.id}"/>
-  Username: <span th:text="${#authentication.principal.username}"/>
-  Email: <span th:text="${#authentication.principal.email}"/>
-</div>
 
 <form th:action="@{|/posts/${id}/edit|}" method="post" th:object="${post}">
   <label for="title">Title:</label>

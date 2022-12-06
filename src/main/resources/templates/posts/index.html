@@ -4,16 +4,10 @@
       lang="en">
 <head>
     <div th:replace="partials::head-fragment('All Posts')"></div>
-    <link rel="stylesheet" href="/css/posts.css">
+    <link rel="stylesheet" th:href="@{/css/posts.css}">
 </head>
 <body>
 <nav th:replace="partials::navbar"></nav>
-
-<!--<form th:action="@{/logout}" th:method="post">-->
-<!--    <div class="d-grid gap-2 d-md-flex justify-content-md-end">-->
-<!--        <button type="button" class="btn btn-danger btn-lg">Logout</button>-->
-<!--    </div>-->
-<!--</form>-->
 
 <div class="container text-center">
     <h1 class="title pt-5">All Posts</h1>

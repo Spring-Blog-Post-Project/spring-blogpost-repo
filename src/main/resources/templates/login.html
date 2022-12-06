@@ -3,8 +3,8 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       lang="en">
 <head>
-  <div th:replace="partials :: head-fragment('login')"></div>
-  <link rel="stylesheet" href="/css/login.css">
+  <div th:replace="partials :: head-fragment('Login')"></div>
+  <link rel="stylesheet" th:href="@{/css/login.css}">
 </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>

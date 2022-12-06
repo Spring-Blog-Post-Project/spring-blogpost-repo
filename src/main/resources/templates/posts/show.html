@@ -4,8 +4,8 @@
       lang="en">
 <head>
   <div th:replace="partials::head-fragment('Current Post')"></div>
-  <link rel="stylesheet" href="/css/posts.css">
-    <link rel="stylesheet" href="/css/show.css">
+  <link rel="stylesheet" th:href="@{/css/posts.css}">
+    <link rel="stylesheet" th:href="@{/css/show.css}">
 </head>
 <body>
 <nav th:replace="partials :: navbar"></nav>

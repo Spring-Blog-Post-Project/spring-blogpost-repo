@@ -3,10 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       lang="en">
 <head>
-    <meta charset="UTF-8">
-    <div th:replace="partials :: head-fragment('Edit Page')"></div>
-    <title>Add Comment</title>
-    <link rel="stylesheet" href="/css/global.css">
+    <div th:replace="partials :: head-fragment('Add Comment')"></div>
     <link rel="stylesheet" th:href="@{/css/comment.css}">
 </head>
 <body>
@@ -18,7 +15,7 @@
         <form th:action="@{|/comments/${post.id}/create|}" th:method="post" class="w-100 mx-auto" th:object="${comment}">
             <div class="w-100">
                 <label for="comment" class="form-label">Comment</label>
-                <input id="comment" name="comment" type="text" class="form-control w-100 shadow-none">
+                <input th:field="*{body}" id="comment" name="comment" type="text" class="form-control w-100 shadow-none">
             </div>
             <div class="w-100 mt-4">
                 <input type="submit" value="Submit" class="form-control w-100 text-white shadow-none" id="btn">
