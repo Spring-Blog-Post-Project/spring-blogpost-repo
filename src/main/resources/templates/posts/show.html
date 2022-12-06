@@ -3,12 +3,12 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       lang="en">
 <head>
-  <div th:replace="partials::head-fragment('Current Post')"></div>
+  <div th:replace="partials/partials::head-fragment('Current Post')"></div>
   <link rel="stylesheet" th:href="@{/css/posts.css}">
     <link rel="stylesheet" th:href="@{/css/show.css}">
 </head>
 <body>
-<nav th:replace="partials :: navbar"></nav>
+<nav th:replace="partials/partials :: navbar"></nav>
 
 <div class="spacing-div py-4"></div>
 
@@ -44,6 +44,7 @@
       </div>
   </div>
 </div>
-<footer th:replace="partials :: footer-fragment"></footer>
+<footer th:replace="partials/partials :: footer-fragment"></footer>
+<div th:replace="partials/partials :: scripts"></div>
 </body>
 </html>

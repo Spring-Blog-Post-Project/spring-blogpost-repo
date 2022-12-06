@@ -3,11 +3,11 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       lang="en">
 <head>
-  <div th:replace="partials :: head-fragment('Login')"></div>
+  <div th:replace="partials/partials :: head-fragment('Login')"></div>
   <link rel="stylesheet" th:href="@{/css/form.css}">
 </head>
 <body>
-<nav th:replace="partials :: navbar"></nav>
+<nav th:replace="partials/partials :: navbar"></nav>
 <main>
   <h1 class="text-center" id="form-title">Log In</h1>
   <div class="form-wrapper">
@@ -35,7 +35,7 @@
     </form>
   </div>
 </main>
-<footer th:replace="partials :: footer-fragment"></footer>
-<div th:replace="partials :: scripts"></div>
+<footer th:replace="partials/partials :: footer-fragment"></footer>
+<div th:replace="partials/partials :: scripts"></div>
 </body>
 </html>

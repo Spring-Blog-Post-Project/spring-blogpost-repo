@@ -30,20 +30,20 @@
         <div class="navbar-collapse collapse w-100 order-1 order-lg-0 collapse-portion">
             <ul class="navbar-nav me-auto">
                 <li sec:authorize="isAuthenticated()" class="nav-item">
-                    <a th:href="@{/posts}" class="nav-link" >All Posts</a>
+                    <a th:href="@{/templates/posts}" class="nav-link" >All Posts</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
                     <a th:href="@{/posts/create}" class="nav-link">Create</a>
                 </li>
                 <li sec:authorize="isAnonymous()" class="nav-item">
-                    <a class="nav-link" th:href="@{/posts}">All Posts</a>
+                    <a class="nav-link" th:href="@{/templates/posts}">All Posts</a>
                 </li>
             </ul>
         </div>
 
         <!-- Center Name Link -->
         <div class="mx-auto order-0">
-            <a class="navbar-brand ps-3" th:href="@{/}">Rheta</a>
+            <a class="navbar-brand ps-3" th:href="@{/static}">Rheta</a>
 
             <button id="navbar-toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-nav">
         <span id="collapse-btn">

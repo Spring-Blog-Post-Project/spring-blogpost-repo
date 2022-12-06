@@ -3,18 +3,18 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       lang="en">
 <head>
-    <div th:replace="partials :: head-fragment('Rheta')"></div>
+    <div th:replace="partials/partials :: head-fragment('Rheta')"></div>
     <link rel="stylesheet" th:href="@{/css/splash_page.css}">
 </head>
 <body>
-<nav th:replace="partials :: navbar"></nav>
+<nav th:replace="partials/partials :: navbar"></nav>
 
 <div class="page-wrapper splash-page-wrapper">
     <img class="image splash-page-logo" src="./images/Rheta-1.png"/>
 </div>
 
-<footer th:replace="partials :: footer-fragment"></footer>
-<div th:replace="partials :: scripts"></div>
+<footer th:replace="partials/partials :: footer-fragment"></footer>
+<div th:replace="partials/partials :: scripts"></div>
 
 </body>
 </html>

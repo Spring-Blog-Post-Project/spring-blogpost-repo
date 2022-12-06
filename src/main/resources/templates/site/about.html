@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"  lang="en">
 <head>
-    <div th:replace="partials :: head-fragment('About Us')"></div>
+    <div th:replace="partials/partials :: head-fragment('About Us')"></div>
 </head>
 <body>
 <!--Navbar-->
-<nav th:replace="partials :: navbar"></nav>
+<nav th:replace="partials/partials :: navbar"></nav>
 
 <main>
     <h1 class="title text-center pt-5">About Rheta</h1>
@@ -17,8 +17,8 @@
 </main>
 
 <!--Footer-->
-<footer th:replace="partials :: footer-fragment"></footer>
+<footer th:replace="partials/partials :: footer-fragment"></footer>
 <!--Scripts-->
-<div th:replace="partials :: scripts"></div>
+<div th:replace="partials/partials :: scripts"></div>
 </body>
 </html>
