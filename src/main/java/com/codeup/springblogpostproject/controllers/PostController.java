@@ -66,6 +66,7 @@ public class PostController {
     public String showEditPostForm(@PathVariable long id, Model model) {
         User user = usersDao.findById(Utils.currentUserId());
         Post post = postsDao.findById(id);
+        // redirects back to all posts if user is not the owner of the post
         if(!user.equals(post.getUser())) {
             return "redirect:/posts";
         }
@@ -75,8 +76,14 @@ public class PostController {
 
     // Post method to receive post object and save to database
     @PostMapping("/{id}/edit")
-    public String editPost(@ModelAttribute Post post) {
+    public String editPost(@ModelAttribute Post post, @PathVariable long id) {
         User user = usersDao.findById(Utils.currentUserId());
+        Post currentPost = postsDao.findById(id);
+        // Only edits post if correct user sending post request
+        if(user.equals(currentPost.getUser())){
+            post.setUser(user);
+            postsDao.save(post);
+        }
         post.setUser(user);
         postsDao.save(post);
         return "redirect:/posts";
@@ -87,10 +94,8 @@ public class PostController {
     public String deletePost(@PathVariable long id) {
         User user = usersDao.findById(Utils.currentUserId());
         Post post = postsDao.findById(id);
-        long UserId = user.getId();
-        long PostUserId = post.getUser().getId();
-        if (UserId == PostUserId) {
-            System.out.println("UserId and PostUserId are equal");
+        // Only deletes post if correct user sending post request
+        if (user.getId() == post.getUser().getId()) {
             postsDao.delete(post);
         }
         return "redirect:/posts";
