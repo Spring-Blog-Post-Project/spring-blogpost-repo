@@ -9,12 +9,10 @@
 <body>
 <nav th:replace="partials::navbar"></nav>
 
-<div class="container text-center">
-    <h1 class="title pt-5">All Posts</h1>
-</div>
+<div class="spacing-div py-4"></div>
 
 <div th:each="post : ${allPosts}" class="posts box-shadow">
-  <div class="container text-center card style=width: 18rem;">
+  <div class="container text-center card">
     <h2 th:text="${post.title}" class="mt-2"></h2>
     <p>User: <span th:text="${post.user.username}"></span></p>
     <p th:text="${post.body}"></p>
@@ -41,16 +39,8 @@
   </div>
 </div>
 
-<!--    <span sec:authorize = "isAuthenticated()">-->
-<!--        <p th:if="${post.user.id == #authentication.principal.id}">-->
-<!--            <button th:data-id="${post.id}" class="editButton">Edit</button>-->
-<!--        </p>-->
-<!--        <p th:if="${post.user.id == #authentication.principal.id}">-->
-<!--            <button th:data-id="${post.id}" class="deleteButton">Delete</button>-->
-<!--        </p>-->
-<!--    </span>-->
-<!--  </li>-->
-<!--</ul>-->
+<div class="spacing-div py-4"></div>
+
 <footer th:replace="partials::footer-fragment"></footer>
 <div th:replace="partials::scripts"></div>
 <script th:src="@{/js/edit.js}"></script>
