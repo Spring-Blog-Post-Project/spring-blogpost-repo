@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 <head>
-  <div th:replace="partials :: head-fragment('login')"></div>
-  <link rel="stylesheet" href="/css/login.css">
+  <div th:replace="partials/partials :: head-fragment('Login')"></div>
+  <link rel="stylesheet" th:href="@{/css/form.css}">
 </head>
 <body>
-<nav th:replace="partials :: navbar"></nav>
+<nav th:replace="partials/partials :: navbar"></nav>
 <main>
-  <h1 class="text-center" id="signup-title">Log In</h1>
+  <h1 class="text-center" id="form-title">Log In</h1>
   <div class="form-wrapper">
     <form th:action="@{/login}" th:method="post" class="w-100 mx-auto">
       <div class="w-100">
         <label for="username" class="form-label">Username</label>
-        <input id="username" name="username" type="text" class="form-control w-100 shadow-none">
+        <input id="username" name="username" type="text" class="form-control w-100 shadow-none focus-field" autocomplete="off">
       </div>
       <div th:if="${param.error}" class="username-error">
         Invalid Username
@@ -33,7 +35,7 @@
     </form>
   </div>
 </main>
-<footer th:replace="partials :: footer-fragment"></footer>
-<div th:replace="partials :: scripts"></div>
+<footer th:replace="partials/partials :: footer-fragment"></footer>
+<div th:replace="partials/partials :: scripts"></div>
 </body>
 </html>

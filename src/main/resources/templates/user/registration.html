@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 <head>
-  <link rel="stylesheet" href="/css/signup.css">
-  <div th:replace="partials :: head-fragment('Signup')"></div>
+  <div th:replace="partials/partials :: head-fragment('Signup')"></div>
+  <link rel="stylesheet" th:href="@{/css/form.css}">
 </head>
 <body>
-<nav th:replace="partials :: navbar"></nav>
+<nav th:replace="partials/partials :: navbar"></nav>
 <main>
-  <h2 class="text-center" id="signup-title">Sign Up</h2>
+  <h2 class="text-center" id="form-title">Sign Up</h2>
   <div class="form-wrapper">
     <form class="w-100 mx-auto" th:action="@{/register}" method="post" th:object="${user}">
       <div class="mb-3 w-100">
         <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control w-100 shadow-none" id="username" th:field="*{username}">
+        <input type="text" class="form-control w-100 shadow-none focus-field" id="username" th:field="*{username}" autocomplete="off">
       </div>
       <div class="mb-3 w-100">
         <label for="email" class="form-label">Email</label>
-        <input type="text" class="form-control w-100 shadow-none" id="email" th:field="*{email}">
+        <input type="text" class="form-control w-100 shadow-none" id="email" th:field="*{email}" autocomplete="off">
       </div>
       <div class="mb-3 w-100">
         <label class="form-label" for="password">Password</label>
@@ -28,7 +30,7 @@
     </form>
   </div>
 </main>
-<footer th:replace="partials :: footer-fragment"></footer>
-<div th:replace="partials :: scripts"></div>
+<footer th:replace="partials/partials :: footer-fragment"></footer>
+<div th:replace="partials/partials :: scripts"></div>
 </body>
 </html>

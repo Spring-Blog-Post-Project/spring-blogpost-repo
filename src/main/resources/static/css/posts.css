@@ -13,6 +13,11 @@ body {
     margin-right: 30rem;
 }
 
+.post-title-link {
+    text-decoration: none;
+    color: rgb(215, 89, 64);
+}
+
 .box-shadow {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

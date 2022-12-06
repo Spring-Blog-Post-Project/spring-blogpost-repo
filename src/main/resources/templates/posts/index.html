@@ -1,64 +1,59 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 <head>
-    <div th:replace="partials::head-fragment('All Posts')"></div>
-    <link rel="stylesheet" href="/css/posts.css">
+    <div th:replace="partials/partials::head-fragment('All Posts')"></div>
+    <link rel="stylesheet" th:href="@{/css/posts.css}">
 </head>
 <body>
-<nav th:replace="partials::navbar"></nav>
+<nav th:replace="partials/partials::navbar"></nav>
 
-<!--<form th:action="@{/logout}" th:method="post">-->
-<!--    <div class="d-grid gap-2 d-md-flex justify-content-md-end">-->
-<!--        <button type="button" class="btn btn-danger btn-lg">Logout</button>-->
-<!--    </div>-->
-<!--</form>-->
-
-<div class="container text-center">
-    <h1 class="title">All Posts</h1>
-</div>
+<div class="spacing-div py-4"></div>
 
 <div th:each="post : ${allPosts}" class="posts box-shadow">
-  <div class="container text-center card style=width: 18rem;">
-    <h2 th:text="${post.title}"></h2>
+  <div class="container text-center card">
+    <h2 class="mt-2">
+        <a th:href="@{|/posts/${post.id}|}" th:text="${post.title}" class="post-title-link"></a>
+    </h2>
     <p>User: <span th:text="${post.user.username}"></span></p>
     <p th:text="${post.body}"></p>
 
         <span sec:authorize = "isAuthenticated()">
             <div class="d-flex justify-content-center">
-            <p th:if="${post.user.id == #authentication.principal.id}">
-                <button th:data-id="${post.id}" class="editButton btn btn-danger">Edit</button>
-            </p>
-            <p th:if="${post.user.id == #authentication.principal.id}">
-                <button th:data-id="${post.id}" class="deleteButton btn btn-danger">Delete</button>
-            </p>
-            <p>
-                <button th:data-id="${post.id}" class="commentsButton btn btn-danger">Comments</button>
-            </p>
+                <p th:if="${post.user.id == #authentication.principal.id}">
+                    <button th:data-id="${post.id}" class="editButton btn btn-danger">Edit</button>
+                </p>
+                <p th:if="${post.user.id == #authentication.principal.id}">
+                    <button th:data-id="${post.id}" class="deleteButton btn btn-danger">Delete</button>
+                </p>
+                <p>
+                    <button th:data-id="${post.id}" class="commentsButton btn btn-danger">Comment</button>
+                </p>
             </div>
         </span>
 
+<!--<<<<<<< HEAD-->
 
          <p>Comments:</p>
          <div th:each="comment : ${post.comments}">
             <p> <span class="fw-bold" th:text="${comment.user.username}"></span>: <span th:text="${comment.body}"></span></p>
          </div>
       
+<!--=======-->
+      <hr th:if="${post.comments}">
+      <div th:each="comment : ${post.comments}">
+          <p> <span class="fw-bold" th:text="${comment.user.username}"></span>: <span th:text="${comment.body}"></span></p>
+      </div>
+<!--&gt;>>>>>> main-->
 
   </div>
 </div>
 
-<!--    <span sec:authorize = "isAuthenticated()">-->
-<!--        <p th:if="${post.user.id == #authentication.principal.id}">-->
-<!--            <button th:data-id="${post.id}" class="editButton">Edit</button>-->
-<!--        </p>-->
-<!--        <p th:if="${post.user.id == #authentication.principal.id}">-->
-<!--            <button th:data-id="${post.id}" class="deleteButton">Delete</button>-->
-<!--        </p>-->
-<!--    </span>-->
-<!--  </li>-->
-<!--</ul>-->
-<footer th:replace="partials::footer-fragment"></footer>
-<div th:replace="partials::scripts"></div>
+<div class="spacing-div py-4"></div>
+
+<footer th:replace="partials/partials::footer-fragment"></footer>
+<div th:replace="partials/partials::scripts"></div>
 <script th:src="@{/js/edit.js}"></script>
 <script th:src="@{/js/delete.js}"></script>
 <script th:src="@{/js/comments.js}"></script>

@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 <head>
-    <meta charset="UTF-8">
-    <div th:replace="partials :: head-fragment('Edit Page')"></div>
-    <title>Add Comment</title>
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/edit.css">
+    <div th:replace="partials/partials :: head-fragment('Add Comment')"></div>
+    <link rel="stylesheet" th:href="@{/css/form.css}">
 </head>
 <body>
-<nav th:replace="partials :: navbar"></nav>
+<nav th:replace="partials/partials :: navbar"></nav>
 
-<form th:action="@{|/comments/${post.id}/create|}" method="post" th:object="${comment}">
-    <label for="comment">Comment:</label>
-    <input type="text" th:field="*{body}" id="comment">
-    <br><br>
-    <input type="submit" value="Submit">
-</form>
+<main>
+    <h1 class="text-center" id="form-title">Add Comment</h1>
+    <div class="form-wrapper">
+        <form th:action="@{|/comments/${post.id}/create|}" th:method="post" class="w-100 mx-auto" th:object="${comment}">
+            <div class="w-100">
+                <label for="comment" class="form-label">Comment</label>
+                <textarea th:field="*{body}" id="comment" name="comment" rows="6" class="form-control w-100 shadow-none focus-field"></textarea>
+            </div>
+            <div class="w-100 mt-4">
+                <input type="submit" value="Submit" class="form-control w-100 text-white shadow-none" id="btn">
+            </div>
+        </form>
+    </div>
+</main>
 
-<footer th:replace="partials :: footer-fragment"></footer>
-<div th:replace="partials :: scripts"></div>
+<footer th:replace="partials/partials :: footer-fragment"></footer>
+<div th:replace="partials/partials :: scripts"></div>
 </body>
 </html>

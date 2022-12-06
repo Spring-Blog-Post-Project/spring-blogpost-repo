@@ -16,7 +16,14 @@
 
 #main-navbar, #footer {
 	background-color: #F8F9FA;
-	color: black;
+}
+#footer > div > a, #footer > div > span {
+	text-decoration: none;
+	color: #000;
+}
+
+#main-navbar a:hover, #footer > div > a:hover {
+	color: rgb(215, 89, 64);
 }
 
 

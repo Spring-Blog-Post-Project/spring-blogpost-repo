@@ -1,5 +1,5 @@
 body{
-	margin: 0;
+	margin: 56px 0 50px 0;
 }
 
 *{
@@ -13,6 +13,10 @@ body{
 	min-height: 100vh;
 	overflow: hidden;
 	position: relative;
+}
+
+h1.title {
+	color: rgb(215, 89, 64);
 }
 
 .image{
@@ -30,10 +34,14 @@ body{
 #footer {
 	padding: 0.8rem;
 }
-#footer>div {
+#footer > div {
 	flex: 1;
 }
-div > a {
+#footer > div > a, #footer > div > span {
 	text-decoration: none;
 	color: #FFFFFF;
+}
+
+#footer > div > a:hover {
+	color: rgba(0, 0, 0, 0.7);
 }

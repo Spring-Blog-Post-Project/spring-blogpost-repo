@@ -1,6 +1,7 @@
 body {
     background-color: rgb(248, 249, 250);
 }
+
 .my-card-container {
     display:flex;
     flex-wrap: wrap;
@@ -11,6 +12,10 @@ body {
 
 .card.single-post {
     min-width: calc(33.33% - 20px);
+}
+
+.post-title {
+    color: rgb(215, 89, 64);
 }
 
 .box-shadow {
