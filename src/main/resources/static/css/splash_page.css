@@ -17,7 +17,7 @@
 #main-navbar, #footer {
 	background-color: #F8F9FA;
 }
-#footer > div > a {
+#footer > div > a, #footer > div > span {
 	text-decoration: none;
 	color: #000;
 }
