@@ -15,7 +15,7 @@
     <form th:action="@{/posts/create}" th:method="post" class="w-100 mx-auto" th:object="${post}">
       <div class="w-100">
         <label for="title" class="form-label">Title</label>
-        <input th:field="*{title}" id="title" name="title" type="text" class="form-control w-100 shadow-none" autocomplete="off">
+        <input th:field="*{title}" id="title" name="title" type="text" class="form-control w-100 shadow-none focus-field" autocomplete="off">
       </div>
       <div class="w-100">
         <label for="body" class="form-label">Body</label>

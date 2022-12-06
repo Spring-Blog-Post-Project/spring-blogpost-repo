@@ -14,7 +14,7 @@
     <form th:action="@{/login}" th:method="post" class="w-100 mx-auto">
       <div class="w-100">
         <label for="username" class="form-label">Username</label>
-        <input id="username" name="username" type="text" class="form-control w-100 shadow-none" autocomplete="off">
+        <input id="username" name="username" type="text" class="form-control w-100 shadow-none focus-field" autocomplete="off">
       </div>
       <div th:if="${param.error}" class="username-error">
         Invalid Username
