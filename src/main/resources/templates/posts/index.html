@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 <head>
     <div th:replace="partials::head-fragment('All Posts')"></div>
     <link rel="stylesheet" href="/css/posts.css">
@@ -19,25 +21,25 @@
 
 <div th:each="post : ${allPosts}" class="posts box-shadow">
   <div class="container text-center card style=width: 18rem;">
-    <h2 th:text="${post.title}"></h2>
+    <h2 th:text="${post.title}" class="mt-2"></h2>
     <p>User: <span th:text="${post.user.username}"></span></p>
     <p th:text="${post.body}"></p>
 
         <span sec:authorize = "isAuthenticated()">
             <div class="d-flex justify-content-center">
-            <p th:if="${post.user.id == #authentication.principal.id}">
-                <button th:data-id="${post.id}" class="editButton btn btn-danger">Edit</button>
-            </p>
-            <p th:if="${post.user.id == #authentication.principal.id}">
-                <button th:data-id="${post.id}" class="deleteButton btn btn-danger">Delete</button>
-            </p>
-            <p>
-                <button th:data-id="${post.id}" class="commentsButton btn btn-danger">Comments</button>
-            </p>
+                <p th:if="${post.user.id == #authentication.principal.id}">
+                    <button th:data-id="${post.id}" class="editButton btn btn-danger">Edit</button>
+                </p>
+                <p th:if="${post.user.id == #authentication.principal.id}">
+                    <button th:data-id="${post.id}" class="deleteButton btn btn-danger">Delete</button>
+                </p>
+                <p>
+                    <button th:data-id="${post.id}" class="commentsButton btn btn-danger">Comment</button>
+                </p>
             </div>
         </span>
 
-      <p>Comments:</p>
+      <hr th:if="${post.comments}">
       <div th:each="comment : ${post.comments}">
           <p> <span class="fw-bold" th:text="${comment.user.username}"></span>: <span th:text="${comment.body}"></span></p>
       </div>
