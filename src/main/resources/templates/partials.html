@@ -22,7 +22,7 @@
 <body>
 
 <!--Navbar Fragment-->
-<nav th:fragment="navbar" id="main-navbar" class="navbar navbar-expand-md w-100">
+<nav th:fragment="navbar" id="main-navbar" class="navbar navbar-expand-lg w-100">
     <div class="container-fluid">
 
         <!-- Links on Left -->
@@ -72,15 +72,15 @@
 </nav>
 
 <!--Footer Fragment-->
-<footer th:fragment="footer-fragment" id="footer" class="d-flex justify-content-between align-items-center fixed-bottom">
-    <div>
-        <a class="about-footer" th:href="@{/about}">About</a>
+<footer th:fragment="footer-fragment" id="footer" class="d-flex fixed-bottom">
+    <div class="d-flex justify-content-center">
+        <a class="about-footer me-auto" th:href="@{/about}">About</a>
     </div>
-    <div>
+    <div class="d-flex justify-content-center">
         <a class="contact-footer" th:href="@{/contact}">Contact</a>
     </div>
-    <div>
-        &#169; 2022 Rheta Industries
+    <div class="d-flex justify-content-center">
+        <span class="ms-auto">&#169; 2022 Rheta Industries</span>
     </div>
 </footer>
 
