@@ -12,15 +12,15 @@
 <body>
 <main>
   <nav th:replace="partials :: navbar"></nav>
-  <h2 class="text-center mt-5">Edit a Post</h2>
+  <h2 class="text-center">Edit a Post</h2>
   <div class="form-wrapper">
     <form th:action="@{|/posts/${id}/edit|}" method="post" th:object="${post}" class="w-100">
       <div>
-        <label for="title">Title</label>
+        <label for="title" id="label-one">Title</label>
         <input type="text" th:field="*{title}" id="title" class="w-100">
       </div>
-      <div class="w-100">
-        <label for="body">Body</label>
+      <div>
+        <label for="body" id="label-two">Body</label>
         <textarea th:field="*{body}" id="body" rows="10" cols="32"></textarea>
       </div>
       <div class="mt-3">
