@@ -22,4 +22,8 @@
 	color: #000;
 }
 
+#main-navbar a:hover, #footer > div > a:hover {
+	color: rgb(215, 89, 64);
+}
+
 
