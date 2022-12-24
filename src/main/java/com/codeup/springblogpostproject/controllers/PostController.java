@@ -32,6 +32,7 @@ public class PostController {
     // Get method to show index.html view with all posts added to model
     @GetMapping
     public String allPosts(Model model){
+
         List<Post> allPosts = postsDao.findAll();
         model.addAttribute("allPosts", allPosts);
         return "/posts/index";
