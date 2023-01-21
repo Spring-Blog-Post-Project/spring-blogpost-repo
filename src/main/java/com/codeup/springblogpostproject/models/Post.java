@@ -53,9 +53,6 @@ public class Post {
         this.id = id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
     public String getTitle() {
         return title;
     }
@@ -87,7 +84,6 @@ public class Post {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
-
 
 }
 

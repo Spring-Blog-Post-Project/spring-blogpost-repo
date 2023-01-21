@@ -37,7 +37,7 @@
 
                   <hr th:if="${post.comments}">
                   <div th:each="comment : ${post.comments}">
-                      <p> <span class="fw-bold" th:text="${comment.user.username}"></span>: <span th:text="${comment.body}"></span></p>
+                      <p><span class="fw-bold" th:text="${comment.user.username}"></span>: <span th:text="${comment.body}"></span></p>
                   </div>
               </div>
           </div>

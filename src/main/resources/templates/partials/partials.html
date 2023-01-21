@@ -46,9 +46,9 @@
             <a class="navbar-brand ps-3" th:href="@{/}">Rheta</a>
 
             <button id="navbar-toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-nav">
-        <span id="collapse-btn">
-            <i class="bi bi-list"></i>
-        </span>
+                <span id="collapse-btn">
+                    <i class="bi bi-list"></i>
+                </span>
             </button>
         </div>
 
@@ -61,10 +61,10 @@
                     </form>
                 </li>
                 <li sec:authorize="isAnonymous()" class="nav-item">
-                    <a class="nav-link" th:href="@{/register}">Signup</a>
+                    <a class="nav-link" th:href="@{/login}">Login</a>
                 </li>
                 <li sec:authorize="isAnonymous()" class="nav-item">
-                    <a class="nav-link" th:href="@{/login}">Login</a>
+                    <a class="nav-link" th:href="@{/register}">Signup</a>
                 </li>
             </ul>
         </div>

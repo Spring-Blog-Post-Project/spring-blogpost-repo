@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SpringBlogUserDetailsService implements UserDetailsService {
-
     public final UserRepository usersDao;
 
     public SpringBlogUserDetailsService(UserRepository usersDao) {
@@ -27,9 +26,6 @@ public class SpringBlogUserDetailsService implements UserDetailsService {
         }
 
     }
-
-
-
 
 
 }
